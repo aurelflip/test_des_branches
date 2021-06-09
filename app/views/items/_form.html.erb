@@ -30,7 +30,7 @@
 </STYLE>
 
 
-
+<p> YOU HAVE VISITED THIS SITE <%= pluralize @visit_count, 'time'%> </p>
 
 <div class="container imgcgatons">
     <img class="card-img-top" src="https://data.puzzle.be/dino.151/chatons-puzzle-150-pieces.62908-1.fs.jpg" alt="Card image cap">
@@ -62,13 +62,7 @@
       <%= form.label :image_url %>
       <%= form.text_field :image_url %>
     </div>
-  
-    <br></br>
-  
-    <div class="field a1">
-      <%= form.label :user_id %>
-      <%= form.text_field :user_id %>
-    </div>
+
   
     <br></br>
   
@@ -77,7 +71,3 @@
     </div>
   <% end %>
 </div>
-
-
-
-

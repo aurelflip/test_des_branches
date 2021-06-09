@@ -1,4 +1,16 @@
-#/items
+
+<details>
+  <summary>Shopping cart</summary>
+  <% if @cart.empty? %>
+  <p>No Items in Cart.</p>
+  <% else %>
+  <ul>
+    <% @cart.each do |item| %>
+    <li><%= item.title %>prix :<%= item.price %>€ - <%= link_to 'remove from cart', remove_from_cart_path(item), method: :delete %> </li>
+  <% end %>
+  </ul>
+  <% end %>
+</details>
 
 <p id="notice"><%= notice %></p>
 
@@ -42,12 +54,18 @@
               <%= link_to "View random user", landing_path(item.id), class: 'btn btn-sm btn-outline-secondary'%>
               <%= link_to "Modifier", edit_item_path(item.id), class: 'btn btn-sm btn-outline-secondary'%>
               <%= link_to "User", edit_item_path(item.id), class: 'btn btn-sm btn-outline-secondary'%>
-              <%= item.user %>
+
+              <% if @cart.include?(item) %>
+              <p><%= button_to 'remove from cart', remove_from_cart_path(item), method: :delete %></p> 
+              <% else %>
+              <p><%= link_to 'add to cart', add_to_cart_path(item.id), method: :post %></p>
+              <% end %>
             </div>
 
           </div>
         </div>
       </div>
+      
     <% end %>
   </div>
 </div>
@@ -74,5 +92,3 @@
 
 
 </STYLE>
-
-

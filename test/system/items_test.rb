@@ -18,7 +18,6 @@ class ItemsTest < ApplicationSystemTestCase
     fill_in "Image url", with: @item.image_url
     fill_in "Price", with: @item.price
     fill_in "Title", with: @item.title
-    fill_in "User", with: @item.user_id
     click_on "Create Item"
 
     assert_text "Item was successfully created"
@@ -33,7 +32,6 @@ class ItemsTest < ApplicationSystemTestCase
     fill_in "Image url", with: @item.image_url
     fill_in "Price", with: @item.price
     fill_in "Title", with: @item.title
-    fill_in "User", with: @item.user_id
     click_on "Update Item"
 
     assert_text "Item was successfully updated"
